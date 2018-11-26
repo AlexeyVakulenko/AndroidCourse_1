@@ -8,6 +8,7 @@ import android.webkit.WebView;
 public class MainActivity extends Activity {
 
     private WebView webView;
+    public static final String uriSearch = "https://www.yandex.ru/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +23,7 @@ public class MainActivity extends Activity {
         super.onResume();
         Uri uri = getIntent().getData();
         if (uri != null) {
-            webView.loadUrl("https://www.yandex.ru/");
+            webView.loadUrl(uriSearch);
         }
     }
 
