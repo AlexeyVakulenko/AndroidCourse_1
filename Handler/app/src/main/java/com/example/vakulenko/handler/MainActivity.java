@@ -3,18 +3,18 @@ package com.example.vakulenko.handler;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.webkit.WebView;
 
 public class MainActivity extends Activity {
 
-    private TextView textView;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = findViewById(R.id.textView1);
-
+        webView = findViewById(R.id.web_view1);
+        webView.getSettings().setJavaScriptEnabled(true);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
         super.onResume();
         Uri uri = getIntent().getData();
         if (uri != null) {
-            textView.setText(getIntent().getData().toString());
+            webView.loadUrl("https://www.yandex.ru/");
         }
     }
 
